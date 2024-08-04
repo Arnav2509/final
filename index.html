@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('https://humboldt.ca/wp-content/uploads/2024/06/4-1.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            color: white; /* Text color for contrast */
+            display: flex; /* Enable flexbox */
+            justify-content: flex-end; /* Align content to the right */
+            align-items: flex-end; /* Align content to the bottom */
+            padding: 20px; /* Padding for some space */
+            position: relative; /* Relative positioning for absolute button */
+        }
+        .view-full-site-button {
+            padding: 10px 20px; /* Button padding */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white; /* Button text color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            margin-bottom: 30px; /* Space above the button */
+        }
+        .view-full-site-button:hover {
+            background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+        }
+    </style>
+</head>
+<body>
+    <button class="view-full-site-button" onclick="window.location.href='home12.html'">View Full Site</button>
+</body>
+</html>
