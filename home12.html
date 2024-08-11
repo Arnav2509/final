@@ -130,29 +130,46 @@
             background-color: #218838; /* Darker green on hover */
         }
 
-        /* GIF styles */
         .right-gif {
-            position: absolute;
-            top: 225px; /* Adjust this value to position it below the nav */
-            right: 89px; /* Adjust to position from the right */
-            max-width: 350px; /* Adjust size as needed */
-            height: auto;
-            z-index: 2; /* Ensure GIF is above the background */
-        }
+    position: absolute;
+    top: 225px; /* Adjust this value to position it as needed */
+    right: 20px; /* Adjust to position from the right */
+    max-width: 350px; /* Adjust size as needed */
+    height: auto;
+    z-index: 2; /* Ensure GIF is above the background */
+}
 
+.background-box {
+    position: absolute;
+    top: 550px; /* Adjust this value to position below the GIF */
+    right: 100px; /* Align with the GIF on the right */
+    background-color: rgba(238, 231, 231, 0.8); /* Slightly transparent white background */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it's above the background */
+}
+
+.this-or-that {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    font-family: 'Georgia', serif;
+    text-align: center; /* Center the text within the box */
+}
         /* Conversation box styles */
         .conversation-box {
             position: absolute;
             top: 250px; /* Adjust this value to position it below the nav */
             left: 20px; /* Adjust to position from the left */
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            background-color: white; /* Add white background */
+            border-radius: 5px;
             padding: 10px;
             display: flex;
             align-items: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pop-in-out 2s infinite; /* Add this line */
         }
 
         .conversation-box img {
@@ -160,6 +177,47 @@
             height: auto;
             margin-right: 10px; /* Space between image and text */
         }
+
+        .conversation-box p {
+           font-weight: bold; /* Make text bold */
+           font-size: 1.5em; /* Increase font size */
+           color: black; /* Change text color to black */
+           margin-left: 10px; /* Move text slightly to the right */
+           font-family: 'Georgia', serif; /* Change font */
+           animation: inherit; /* Add this line */
+        }
+
+.pop-box {
+    position: absolute;
+    top: 320px; /* Position below the "R u consuming the right food?" box */
+    left: 500px; /* Align with the conversation box */
+    background-color: #ffcc00; /* Yellow background color */
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family: 'Georgia', serif;
+    z-index: 2; /* Ensure it's above the background */
+    animation: pop-in-out 2s infinite;
+}
+
+.pop-box p {
+    margin: 0;
+}
+
+        @keyframes pop-in-out {
+            0%, 100% {
+            opacity: 0;
+            transform: scale(0.5);
+    }
+            50% {
+            opacity: 1;
+            transform: scale(1);
+    }
+
+        }  
     </style>
 </head>
 <body>
@@ -168,26 +226,35 @@
     </header>
     <div class="background-image">
         <nav>
-            <a href="#redirects">Home</a>
+            <a href="#" id="home-link">Home</a>
+            <a href="#" id="products-link">Harmful Products Used in Daily Life</a>
+            <a href="#" id="diseases-link">Diseases caused</a>
+            <a href="#" id="alternatives-link">Alternatives</a>
             <a href="#" id="about-us-link">About Us</a>
             <a href="#" id="contact-us-link">Contact Us</a>
             <a href="#" id="feedback-link">Feedback</a>
-        </nav>
+            </nav>
+
         <img src="https://media1.tenor.com/m/E7IPoWi_LXoAAAAC/food-health.gif" alt="GIF" class="right-gif"> <!-- Added GIF -->
-        <div class="content" id="redirects">
-            <h2>Navigation Redirects</h2>
-            <a href="#" class="nav-button" id="home-link">Home</a>
-            <a href="#" class="nav-button" id="products-link">Harmful Products Used in Daily Life</a>
-            <a href="#" class="nav-button" id="diseases-link">Diseases caused</a>
-            <a href="#" class="nav-button" id="alternatives-link">Alternatives</a>
+
+         
+    <!-- This or That Background Box -->
+    <div class="background-box">
+        <div class="this-or-that">
+            <p>This or That?</p>
         </div>
+    </div>
+
         
         <!-- Conversation Box -->
         <div class="conversation-box">
-            <img src="https://www.shutterstock.com/image-vector/cartoon-confused-person-vector-illustration-260nw-516505243.jpg" alt="Confused Person">
-            <p>R u consuming the right food?<br>
-            Is UR health drink really healthy?</p>
+            <p>R u consuming the right food?<br> </p>
         </div>
+
+<div class="pop-box">
+    <p>Is ur health drink really healthy??</p>
+</div>
+
     </div>
 
     <!-- Pop-up box for About Us -->
@@ -227,6 +294,24 @@
             <a href="gagan.html" class="popup-button">Learn More</a>
         </div>
     </div>
+
+    <!-- JavaScript to handle pop-up display -->
+    <script>
+        // Add event listeners for navigation links
+        document.getElementById('home-link').addEventListener('click', function() {
+            document.getElementById('popup-home').style.display = 'block';
+        });
+        document.getElementById('products-link').addEventListener('click', function() {
+            document.getElementById('popup-harmful-products').style.display = 'block';
+        });
+        // More event listeners for other links...
+
+        // Add event listeners for pop-up close buttons
+        document.getElementById('close-popup-home').addEventListener('click', function() {
+            document.getElementById('popup-home').style.display = 'none';
+        });
+        // More event listeners for other close buttons...
+    </script>
 
     <!-- Large pop-up box for Diseases caused -->
     <div class="popup large-popup" id="popup-diseases">
